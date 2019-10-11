@@ -101,7 +101,7 @@ public class NewGameDialog extends JDialog
 			ActionListener listener)
 	{
 		// 获取按钮图标资源
-		ImageIcon icon = new ImageIcon("image/arrow.png");
+		ImageIcon icon = new ImageIcon("src/image/arrow.png");
 		if (icon == null) return;
 		JButton btn = new JButton(title, icon);
 		// 按钮背景透明

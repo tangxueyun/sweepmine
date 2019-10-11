@@ -55,8 +55,8 @@ public class MineCount extends JComponent
 		// Setting setting = new Setting(Setting.LOOK);
 		// 获取记雷器的背景图片资源
 		if (Setting.getBlockColor() == Setting.GREEN_BLOCK) image = new ImageIcon(
-				"image/green/mine_count.png").getImage();
-		else image = new ImageIcon("image/blue/mine_count.png").getImage();
+				"/src/image/green/mine_count.png").getImage();
+		else image = new ImageIcon("/src/image/blue/mine_count.png").getImage();
 		// 资源不为空，则获取图片的宽高，作为首选尺寸
 		if (image == null) return;
 		width = image.getWidth(this);

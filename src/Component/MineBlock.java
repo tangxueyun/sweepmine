@@ -50,9 +50,11 @@ public class MineBlock extends JComponent
 	{
 		this.xNum = xNum;
 		this.yNum = yNum;
-		
-		if (Setting.getBlockColor() == Setting.GREEN_BLOCK) imageUrl = "image/green/";
-		else imageUrl = "image/blue/";
+
+		imageUrl="src/image/";
+
+		if (Setting.getBlockColor() == Setting.GREEN_BLOCK) imageUrl += "green/";
+		else imageUrl += "blue/";
 		
 		if (Setting.getMineStyle() == Setting.MINE) mineUrl = imageUrl
 				+ "/mine/";
@@ -71,11 +73,10 @@ public class MineBlock extends JComponent
 	
 	public MineBlock(int i)
 	{
-		this.xNum = xNum;
-		this.yNum = yNum;
-		
-		if (Setting.getBlockColor() == Setting.GREEN_BLOCK) imageUrl = "image/green/";
-		else imageUrl = "image/blue/";
+		imageUrl="src/image/";
+
+		if (Setting.getBlockColor() == Setting.GREEN_BLOCK) imageUrl += "green/";
+		else imageUrl = "blue/";
 		
 		if (Setting.getMineStyle() == Setting.MINE) mineUrl = imageUrl
 				+ "/mine/";

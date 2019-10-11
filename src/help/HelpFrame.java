@@ -33,7 +33,7 @@ public class HelpFrame extends JFrame
 		// 标题
 		setTitle("查看帮助");
 		// 图标
-		setIconImage(new ImageIcon("image/lei.png").getImage());
+		setIconImage(new ImageIcon("src/image/lei.png").getImage());
 		// 窗体大小
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		// 字体颜色
