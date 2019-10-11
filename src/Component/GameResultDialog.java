@@ -42,7 +42,6 @@ public class GameResultDialog extends JDialog {
 
     // 用于测试的主函数
     public static void main(String[] args) {
-        Setting setting = new Setting();
         SweepMineFrame frame = new SweepMineFrame();
         MineArea area = new MineArea();
         // 失败对话框
@@ -119,7 +118,7 @@ public class GameResultDialog extends JDialog {
         exitBtn = new JButton("退出(X)");
         exitBtn.setMnemonic('X');
         //设置按钮点击事件监听器，实现点击按钮退出程序
-        exitBtn.addActionListener(e-> System.exit(0));
+        exitBtn.addActionListener(e -> System.exit(0));
         // 开始新游戏按钮
         gameBtn = new JButton("再玩一局(P)");
         gameBtn.setMnemonic('P');
@@ -191,12 +190,10 @@ public class GameResultDialog extends JDialog {
 
         JButton aginButton = new JButton("重新开始这个游戏(R)");
         aginButton.setMnemonic('R');
-        aginButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-                area.isSame = true;
-                area.updateMineArea();
-            }
+        aginButton.addActionListener(e -> {
+            setVisible(false);
+            area.isSame = true;
+            area.updateMineArea();
         });
         panel.add(aginButton);
         panel.add(gameBtn);

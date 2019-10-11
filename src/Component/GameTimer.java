@@ -1,21 +1,9 @@
 package Component;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.Timer;
-
 import utils.Setting;
+
+import javax.swing.*;
+import java.awt.*;
 
 /**
  * 游戏计时器
@@ -56,9 +44,10 @@ public class GameTimer extends JComponent {
      */
     public GameTimer() {
         // 获取计时器背景图片
-        if (Setting.getBlockColor() == Setting.GREEN_BLOCK) image = new ImageIcon(
-                "src/image/green/timer.png").getImage();
-        else image = new ImageIcon("src/image/blue/timer.png").getImage();
+        if (Setting.getBlockColor() == Setting.GREEN_BLOCK)
+            image = new ImageIcon(GameTimer.class.getResource("/image/green/timer.png")).getImage();
+        else
+            image = new ImageIcon(GameTimer.class.getResource("/image/blue/timer.png")).getImage();
         // 背景图片不为空时，获取图片的宽高
         if (image == null) return;
         width = image.getWidth(this);
@@ -88,11 +77,9 @@ public class GameTimer extends JComponent {
      */
     public void start() {
         // 每个1秒，时间加1，并重新绘制计时器
-        timer = new Timer(1000, new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                time++;
-                repaint();
-            }
+        timer = new Timer(1000, e -> {
+            time++;
+            repaint();
         });
         // 计时开始
         timer.start();

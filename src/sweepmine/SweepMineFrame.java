@@ -25,7 +25,7 @@ public class SweepMineFrame extends JFrame {
 
     public SweepMineFrame() {
         setTitle("扫雷");
-        setIconImage(new ImageIcon("src/image/lei.png").getImage());
+        setIconImage(new ImageIcon(SweepMineFrame.class.getResource("/image/lei.png")).getImage());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // 设置为windows感官
         try {

@@ -1,32 +1,15 @@
 package game;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Frame;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.SwingConstants;
-
-import com.sun.javafx.geom.Area;
-
 import sweepmine.Main;
 import sweepmine.MineArea;
 import sweepmine.SweepMineFrame;
 import utils.GBC;
 import utils.Setting;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 更改外观的对话框
@@ -68,7 +51,7 @@ public class ChangeSurfaceDialog extends JDialog {
 
         imgList = new ArrayList<>();
         for (int i = 0; i < 8; i++)
-            imgList.add(new ImageIcon("src/image/"+i + ".png"));
+            imgList.add(new ImageIcon(ChangeSurfaceDialog.class.getResource("/image/" + i + ".png")));
 
         setLayout(new GridBagLayout());
 
@@ -121,21 +104,16 @@ public class ChangeSurfaceDialog extends JDialog {
 
         add(stylePanel, new GBC(0, 1).setAnchor(GBC.WEST).setIpad(265, 15));
 
-        mineBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                mineStyle = Setting.MINE;
-                mineBtn.setIcon(imgList.get(1));
-                flowerBtn.setIcon(imgList.get(2));
-            }
+        mineBtn.addActionListener(e -> {
+            mineStyle = Setting.MINE;
+            mineBtn.setIcon(imgList.get(1));
+            flowerBtn.setIcon(imgList.get(2));
         });
-        flowerBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+
+        flowerBtn.addActionListener(e->{
                 mineStyle = Setting.FLOWER;
                 mineBtn.setIcon(imgList.get(0));
                 flowerBtn.setIcon(imgList.get(3));
-            }
         });
         if (mineStyle == Setting.MINE) mineBtn.setIcon(imgList.get(1));
         else flowerBtn.setIcon(imgList.get(3));
@@ -163,21 +141,15 @@ public class ChangeSurfaceDialog extends JDialog {
         colorPanel.add(greenBtn);
 
         add(colorPanel, new GBC(0, 3).setAnchor(GBC.WEST).setIpad(215, 15));
-        blueBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        blueBtn.addActionListener(e-> {
                 blockColor = Setting.BLUE_BLOCK;
                 blueBtn.setIcon(imgList.get(5));
                 greenBtn.setIcon(imgList.get(6));
-            }
         });
-        greenBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        greenBtn.addActionListener(e-> {
                 blockColor = Setting.GREEN_BLOCK;
                 blueBtn.setIcon(imgList.get(4));
                 greenBtn.setIcon(imgList.get(7));
-            }
         });
         if (blockColor == Setting.BLUE_BLOCK) blueBtn.setIcon(imgList.get(5));
         else greenBtn.setIcon(imgList.get(7));
@@ -204,11 +176,7 @@ public class ChangeSurfaceDialog extends JDialog {
         btnPanel.add(confirmBtn);
         // 取消按钮
         JButton cancelBtn = new JButton("   取消   ");
-        cancelBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                setVisible(false);
-            }
-        });
+        cancelBtn.addActionListener(e->setVisible(false));
         btnPanel.add(cancelBtn);
         add(btnPanel, new GBC(0, 6).setIpad(360, 0).setInsets(10, 0, 0, 0));
     }
